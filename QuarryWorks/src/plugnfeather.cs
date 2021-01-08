@@ -75,7 +75,7 @@ namespace stoneworks.src
             }
             else
             {
-                Debug.WriteLine(world.Side);
+                //Debug.WriteLine(world.Side);
 
                 PlugnFeatherBlockEntity masterEntity = world.BlockAccessor.GetBlockEntity(be.master.AsBlockPos) as PlugnFeatherBlockEntity;
                 ItemStack[] drops = GetDrops(world, pos, byPlayer);
@@ -313,7 +313,7 @@ namespace stoneworks.src
                     rockamount = k.Value;
                 }
             }
-            Debug.WriteLine(rockpath);
+            //Debug.WriteLine(rockpath);
 
             foreach (BlockPos point in blocks)
             {
@@ -345,7 +345,7 @@ namespace stoneworks.src
             dropItemStack.Attributes.SetInt("stonestored", rockamount);
 
             world.BlockAccessor.BreakBlock(be.master.AsBlockPos, byPlayer);
-            world.SpawnItemEntity(dropItemStack, new Vec3d(be.master.X, be.master.Y, be.master.Z));
+            world.SpawnItemEntity(dropItemStack, new Vec3d(((cube[1].X - cube[0].X) / 2) + cube[0].X, ((cube[1].Y - cube[0].Y) / 2) + cube[0].Y, ((cube[1].Z - cube[0].Z) / 2) + cube[0].Z));
 
         }
 

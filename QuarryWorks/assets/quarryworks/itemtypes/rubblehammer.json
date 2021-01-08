@@ -7,8 +7,8 @@
     }
   ],
   "attributes": {
-    "stonerrate": 100,
-    "rchances": 4,
+    "stonerrate": 80,
+    "rchances": 6,
     "rackable": true,
     "toolrackTransform": {
       "translation": {

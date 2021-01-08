@@ -206,6 +206,38 @@ namespace stoneworks.src
     {
         //used to store what is dropped from the quarry.
 
+        static SimpleParticleProperties interactParticles = new SimpleParticleProperties()
+        {
+            MinPos = new Vec3d(),
+            AddPos = new Vec3d(),
+            MinQuantity = 0,
+            AddQuantity = 3,
+            GravityEffect = .9f,
+            WithTerrainCollision = true,
+            ParticleModel = EnumParticleModel.Quad,
+            LifeLength = 0.5f,
+            MinVelocity = new Vec3f(-1, 2, -1),
+            AddVelocity = new Vec3f(2, 0, 2),
+            MinSize = 0.07f,
+            MaxSize = 0.1f,
+        };
+
+        static RoughCutStorage()
+        {
+            interactParticles.ParticleModel = EnumParticleModel.Quad;
+            interactParticles.AddPos.Set(.5, .5, .5);
+            interactParticles.MinQuantity = 5;
+            interactParticles.AddQuantity = 20;
+            interactParticles.LifeLength = 2.5f;
+            interactParticles.MinSize = 0.1f;
+            interactParticles.MaxSize = 0.4f;
+            interactParticles.MinVelocity.Set(-0.4f, -0.4f, -0.4f);
+            interactParticles.AddVelocity.Set(0.8f, 1.2f, 0.8f);
+            interactParticles.DieOnRainHeightmap = false;
+        }
+
+
+
         public override bool DoPlaceBlock(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel, ItemStack byItemStack)
         {
             if (!base.DoPlaceBlock(world, byPlayer, blockSel, byItemStack)) { return false; };
@@ -292,6 +324,11 @@ namespace stoneworks.src
                 {
                     return false;
                 }
+
+                interactParticles.ColorByBlock = world.BlockAccessor.GetBlock(blockSel.Position);
+                interactParticles.MinPos = blockSel.Position.ToVec3d()+blockSel.HitPosition;
+                world.SpawnParticles(interactParticles, byPlayer);
+
                 world.PlaySoundAt(interactsound, byPlayer, byPlayer, true, 32, .5f);
                 if (pistack.ItemAttributes.KeyExists("polishedrrate"))
                 {
@@ -301,12 +338,14 @@ namespace stoneworks.src
                     if (tblock != null)
                     {
                         dropStack = new ItemStack(world.GetBlock(dropItemString), dropcount(pistack.ItemAttributes["rchances"].AsInt(), pistack.ItemAttributes["polishedrrate"].AsInt()));
-                        world.SpawnItemEntity(dropStack, byPlayer.Entity.Pos.XYZ, new Vec3d(0, .1 , 0));
+                        world.SpawnItemEntity(dropStack, blockSel.Position.ToVec3d() + blockSel.HitPosition, new Vec3d(.05 * blockSel.Face.Normalf.ToVec3d().X, .1, .05 * blockSel.Face.Normalf.ToVec3d().Z));
                         rcbe.istack.Attributes.SetInt("stonestored", rcbe.istack.Attributes.GetInt("stonestored") - 1);
                         if (rcbe.istack.Attributes.GetInt("stonestored") <= 0)
                         {
                             world.BlockAccessor.BreakBlock(blockSel.Position, byPlayer);
                         }
+                        byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item.DamageItem(world, byPlayer.Entity, byPlayer.InventoryManager.ActiveHotbarSlot, 1);
+
                     }
                 }
 
@@ -318,12 +357,13 @@ namespace stoneworks.src
                     if (titem != null)
                     {
                         dropStack = new ItemStack(world.GetItem(dropItemString), dropcount(pistack.ItemAttributes["rchances"].AsInt(), pistack.ItemAttributes["brickrrate"].AsInt()));
-                        world.SpawnItemEntity(dropStack, byPlayer.Entity.Pos.XYZ, new Vec3d(0, .1, 0));
+                        world.SpawnItemEntity(dropStack, blockSel.Position.ToVec3d() + blockSel.HitPosition, new Vec3d(.05 * blockSel.Face.Normalf.ToVec3d().X, .1, .05 * blockSel.Face.Normalf.ToVec3d().Z));
                         rcbe.istack.Attributes.SetInt("stonestored", rcbe.istack.Attributes.GetInt("stonestored") - 1);
                         if (rcbe.istack.Attributes.GetInt("stonestored") <= 0)
                         {
                             world.BlockAccessor.BreakBlock(blockSel.Position, byPlayer);
                         }
+                        byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item.DamageItem(world, byPlayer.Entity, byPlayer.InventoryManager.ActiveHotbarSlot, 1);
 
                     }
                 }
@@ -336,13 +376,13 @@ namespace stoneworks.src
                     if (titem != null)
                     {
                         dropStack = new ItemStack(world.GetItem(dropItemString), dropcount(pistack.ItemAttributes["rchances"].AsInt(), pistack.ItemAttributes["stonerrate"].AsInt()));
-                        world.SpawnItemEntity(dropStack, byPlayer.Entity.Pos.XYZ, new Vec3d(0, .1, 0));
+                        world.SpawnItemEntity(dropStack, blockSel.Position.ToVec3d()+blockSel.HitPosition, new Vec3d(.05 * blockSel.Face.Normalf.ToVec3d().X, .1, .05 * blockSel.Face.Normalf.ToVec3d().Z));
                         rcbe.istack.Attributes.SetInt("stonestored", rcbe.istack.Attributes.GetInt("stonestored") - 1);
                         if (rcbe.istack.Attributes.GetInt("stonestored") <= 0)
                         {
                             world.BlockAccessor.BreakBlock(blockSel.Position, byPlayer);
                         }
-
+                        byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item.DamageItem(world, byPlayer.Entity, byPlayer.InventoryManager.ActiveHotbarSlot, 1);
                     }
                 }
 
@@ -354,7 +394,7 @@ namespace stoneworks.src
                     if (tblock != null)
                     {
                         dropStack = new ItemStack(world.GetBlock(dropItemString), dropcount(pistack.ItemAttributes["rchances"].AsInt(), pistack.ItemAttributes["rockrrate"].AsInt()));
-                        world.SpawnItemEntity(dropStack, byPlayer.Entity.Pos.XYZ, new Vec3d(0, .1, 0));
+                        world.SpawnItemEntity(dropStack, blockSel.Position.ToVec3d() + blockSel.HitPosition, new Vec3d(.05 * blockSel.Face.Normalf.ToVec3d().X, .1, .05 * blockSel.Face.Normalf.ToVec3d().Z));
                         rcbe.istack.Attributes.SetInt("stonestored", rcbe.istack.Attributes.GetInt("stonestored") - 1);
                         if (rcbe.istack.Attributes.GetInt("stonestored") <= 0)
                         {

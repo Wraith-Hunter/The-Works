@@ -7,8 +7,8 @@
     }
   ],
   "attributes": {
-    "brickrrate": 100,
-    "rchances": 4,
+    "brickrrate": 80,
+    "rchances": 8,
     "rackable": true,
     "toolrackTransform": {
       "translation": {
