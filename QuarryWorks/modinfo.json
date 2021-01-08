@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "quarryworks",
+  "name": "quarry works",
+  "author": "Wraith",
+  "description": "Testing!",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}
