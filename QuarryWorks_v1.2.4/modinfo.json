@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "quarryworks",
+  "name": "quarry works",
+  "author": "Wraith",
+  "description": "It's a mess, But it's a stony mess!",
+  "version": "1.2.4",
+  "dependency": {
+    "game": ""
+  }
+}
