@@ -206,7 +206,8 @@
   "lightAbsorption": 0,
 
   "creativeinventory": {
-    "general": [ "*-one-down-north" ]
+    "general": [ "*-one-down-north" ],
+    "stoneworks": [ "*-one-down-north" ]
   },
 
   "collisionboxByType": {

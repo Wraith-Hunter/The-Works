@@ -9,6 +9,7 @@
   "attributes": {
     "stonerrate": 80,
     "rchances": 6,
+    "rubbleable": true,
     "rackable": true,
     "toolrackTransform": {
       "translation": {
@@ -51,7 +52,8 @@
   },
 
   "creativeinventory": {
-    "general": [ "*" ]
+    "general": [ "*" ],
+    "stoneworks": [ "*" ]
   },
 
   "heldTpUseAnimation": "axechop",

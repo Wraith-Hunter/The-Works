@@ -48,7 +48,8 @@
   },
 
   "creativeinventory": {
-    "general": [ "*" ]
+    "general": [ "*" ],
+    "stoneworks": [ "*" ]
   },
 
   "heldTpUseAnimation": "knap",

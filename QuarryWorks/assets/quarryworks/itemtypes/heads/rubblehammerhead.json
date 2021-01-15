@@ -14,7 +14,8 @@
   "maxstacksize": 1,
 
   "creativeinventory": {
-    "general": [ "*" ]
+    "general": [ "*" ],
+    "stoneworks": [ "*" ]
   },
 
   "fpHandTransform": {

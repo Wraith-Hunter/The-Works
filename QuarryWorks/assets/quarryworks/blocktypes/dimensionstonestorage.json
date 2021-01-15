@@ -15,9 +15,6 @@
       "states": [ "north", "south", "east", "west" ]
     }
   ],
-  "creativeinventory": {
-    "general": [ "*" ]
-  },
   "attributesByType": {
     "*-east": {
       "caps": [

@@ -1,10 +1,12 @@
 {
 	"game:tabname-quarry": "The Works",
 	"game:sw-quarry-title": "The Works! Quarry Guide",
-	"game:sw-quarry-text": "\"<strong>So you want to start a quarry?! GOOD!</strong> \n\nJust get yo'self a trusty hammer, a few <a href=\"handbook://block-quarryworks:plugnfeather-copper-one-down-north\">plugs</a> and set them up so they are on the top, or bottom of a set of stone blocks, and across the side where you wish to sheer the slab from. Give them plugs a few good smacks and you'll have you're self a lovely stone slab. Be warned though once you land that first strike you're dedicated to that network and will have to replace all the plugs if you want to move any of them. \n\nDepnding on the grade of plug ye use, ya'can get yo'self more stone in one go. starting at a 3x3 cube and go'in all the way up to a 6x6 cube. \n\nThe size o'the slab ye get is based on how much stone ye done hewn in one go, while any type of slab can be masoned be aware that larger slabs take up more space when placed.  \n\nNow go'on an get yar self some o'that rock.",
+	"game:sw-quarry-text": "\"<strong>So you want to start a quarry?! GOOD!</strong> \n\nJust get yo'self a trusty hammer, a few <a href=\"handbook://block-quarryworks:plugnfeather-copper-one-down-north\">plugs</a> and set them up so they are on the top, or bottom of a set of stone blocks, and across the side where you wish to sheer the slab from. Give them plugs a few good smacks and you'll have you're self a lovely stone slab. Be warned though once you land that first strike you're dedicated to that network and will have to replace all the plugs if you want to move any of them. \n\nDepnding on the grade of plug ye use, ya'can get yo'self more stone in one go. starting at a 3x3 cube and go'in all the way up to a 6x6 cube. \n\nThe size o'the slab ye get is based on how much stone ye done hewn in one go, while any type of slab can be masoned be aware that larger slabs take up more space when placed.  \n\nNow go'on an get yar self some o'that rock, n'once ya have read the <a href=\"handbook://sw-mason\">Masonry Guide.</a>.",
 
 	"game:sw-mason-title": "The Works! Mason's Guide",
-	"game:sw-mason-text": "<strong>So you want to be a mason?</strong> \n\nCan never have too much stone. To start get your self a <a href=\"handbook://sw-quarry\">Quarry</a> going. With each section of stone removed you'll get a slab of stone that you can shape as you please.\n\nFor this purpose there are four tools to acquire different materials.\n\n <a href=\"handbook://item-quarryworks:finishingchisel-copper\">Finishing Chisels</a>: when used on a slab will give polished stone. \n <a href=\"handbook://item-quarryworks:wedgechisel-copper\">Wedge Chisels</a>: when used on a slab will give bricks. \n <a href=\"handbook://item-quarryworks:roughcutchisel-copper\">Roughcut Chisels</a>: when used on a slab will give rock. \n <a href=\"handbook://item-quarryworks:rubblehammer-copper\">Rubble Hammer</a>: when used on a slab will give stone. ",
+	"game:sw-mason-text": "<strong>So you want to be a mason?</strong> \n\nCan never have too much stone. To start get your self a <a href=\"handbook://sw-quarry\">Quarry</a> going. With each section of stone removed you'll get a slab of stone that you can shape as you please.\n\nFor this purpose there are four tools to acquire different materials.\n\n <a href=\"handbook://item-quarryworks:finishingchisel-copper\">Finishing Chisels</a>: when used on a slab will give polished stone. \n <a href=\"handbook://item-quarryworks:wedgechisel-copper\">Wedge Chisels</a>: when used on a slab will give bricks. \n <a href=\"handbook://item-quarryworks:roughcutchisel-copper\">Roughcut Chisels</a>: when used on a slab will give rock. \n <a href=\"handbook://item-quarryworks:rubblehammer-copper\">Rubble Hammer</a>: when used on a slab will give stone. \n\n For your storage needs look in'ta makin yourself a <a href=\"handbook://block-quarryworks:rubblestorage-sandstone-empty-north\">Rubble Storage Crate</a>",
+
+	"game:tabname-stoneworks": "Stone Works!",
 
 	"block-plugnfeather-copper-*": "Copper Plug",
 	"block-plugnfeather-tinbronze-*": "Tinbronze Plug",
@@ -137,6 +139,13 @@
 	"block-handbooktitle-*stonestorage*": "Uses",
 	"block-handbooktext-*stonestorage*": "Once Placed in the world these slabs of stone can be interacted with while holding a <a href=\"handbook://item-quarryworks:finishingchisel-copper\">Finishing Chisel</a>, <a href=\"handbook://item-quarryworks:roughcutchisel-copper\">Roughcut Chisel</a>, <a href=\"handbook://item-quarryworks:wedgechisel-copper\">Wedge Chisel</a>, or <a href=\"handbook://item-quarryworks:rubblehammer-copper\">Rubble Hammer</a> to get a variety of resources.",
 
+
+	"block-rubblestorage-*": "Rubblestorage",
+
+	"block-handbooktitle-*rubblestorage-*": "Uses",
+	"block-handbooktext-*rubblestorage-*": "Once Placed in the world these handcrafted crates can be used to store all kinds of rubble including stone, gravel, and sand! Furthermore if one was to hit the stored material with a rubblehammer the contents would be broken down. Two Stone to One Gravel,  One Gravel to One Sand. \n\n <strong>World Interactions:</strong> \n -To Insert items into the crate, rightclick on the crate with the item in hand. You can insert all of the items in your invintory that match the last item inserted by right clicking with an empty hand. \n -To extract from the crate right click on the buttons on the frount/back. \n -By pressing your run button (default ctrl) you can insert/extract a stack of materials at a time. \n -Lastly you can lock in the point your want to break the internal materials down to by pressing your sneek button (default Shift) and right clicking on the corosponding button. \n\n PS. Try adding water with a bucket while there's gravel contained.",
+
+
 	"block-toolmold-raw-plugnfeather": "Toolmold Raw (Splitting Plug)",
 	"block-toolmold-burned-plugnfeather": "Toolmold Fired (Splitting Plug)",
 
@@ -149,6 +158,9 @@
 	"item-finishingchisel-iron": "Finishing Chisel (Iron)",
 	"item-finishingchisel-meteoriciron": "Finishing Chisel (Meteoriciron)",
 	"item-finishingchisel-steel": "Finishing Chisel (Steel)",
+	"itemcraftdesc-finishingchisel-*": "Polish up on you masonary work with this one simple trick!",
+	"item-handbooktitle-*finishingchisel-*": "Uses:",
+	"item-handbooktext-*finishingchisel-*": "Used in conjuction with stone slabs to recover resources from them. Checkout the <a href=\"handbook://sw-mason\">Masonry Guide</a> for more details.",
 
 	"item-roughcutchisel-copper": "Roughcut Chisel (Copper)",
 	"item-roughcutchisel-tinbronze": "Roughcut Chisel (Tinbronze)",
@@ -159,6 +171,9 @@
 	"item-roughcutchisel-iron": "Roughcut Chisel (Iron)",
 	"item-roughcutchisel-meteoriciron": "Roughcut Chisel (Meteoriciron)",
 	"item-roughcutchisel-steel": "Roughcut Chisel (Steel)",
+	"itemcraftdesc-roughcutchisel-*": "Use incase of urgent stone need.",
+	"item-handbooktitle-*roughcutchisel-*": "Uses:",
+	"item-handbooktext-*roughcutchisel-*": "Used in conjuction with stone slabs to recover resources from them. Checkout the <a href=\"handbook://sw-mason\">Masonry Guide</a> for more details.",
 
 	"item-rubblehammer-copper": "Rubble Hammer (Copper)",
 	"item-rubblehammer-tinbronze": "Rubble Hammer (Tinbronze)",
@@ -169,6 +184,9 @@
 	"item-rubblehammer-iron": "Rubble Hammer (Iron)",
 	"item-rubblehammer-meteoriciron": "Rubble Hammer (Meteoriciron)",
 	"item-rubblehammer-steel": "Rubble Hammer (Steel)",
+	"itemcraftdesc-rubblehammer-*": "For all your Crushing, Breaking, and Shattering needs.",
+	"item-handbooktitle-*rubblehammer-*": "Uses:",
+	"item-handbooktext-*rubblehammer-*": "Used in conjuction with stone slabs to recover resources from them. Checkout the <a href=\"handbook://sw-mason\">Masonry Guide</a> for more details.",
 
 	"item-wedgechisel-copper": "Wedge Chisel (Copper)",
 	"item-wedgechisel-tinbronze": "Wedge Chisel (Tinbronze)",
@@ -179,6 +197,9 @@
 	"item-wedgechisel-iron": "Wedge Chisel (Iron)",
 	"item-wedgechisel-meteoriciron": "Wedge Chisel (Meteoriciron)",
 	"item-wedgechisel-steel": "Wedge Chisel (Steel)",
+	"itemcraftdesc-wedgechisel-*": "For when you need more than a handfull of bricks.",
+	"item-handbooktitle-*wedgechisel-*": "Uses:",
+	"item-handbooktext-*wedgechisel-*": "Used in conjuction with stone slabs to recover resources from them. Checkout the <a href=\"handbook://sw-mason\">Masonry Guide</a> for more details.",
 
 	"item-rubblehammerhead-copper": "Rubble Hammer Head (Copper)",
 	"item-rubblehammerhead-tinbronze": "Rubble Hammer Head (Tinbronze)",
@@ -188,5 +209,9 @@
 	"item-rubblehammerhead-silver": "Rubble Hammer Head (Silver)",
 	"item-rubblehammerhead-iron": "Rubble Hammer Head (Iron)",
 	"item-rubblehammerhead-meteoriciron": "Rubble Hammer Head (Meteoriciron)",
-	"item-rubblehammerhead-steel": "Rubble Hammer Head (Steel)"
+	"item-rubblehammerhead-steel": "Rubble Hammer Head (Steel)",
+	"itemcraftdesc-rubblehammerhead-*": "For all your Crushing, Breaking, and Shattering needs.",
+
+	"item-slabstacksetter": "Suspiciously Dense Ball of Dirt",
+	"itemdesc-slabstacksetter": "Used to set the amount of stone in a slab in creative mode.\n right click to increase,\n run+right click to decrease,\n sneek+rightclick or sneek+run+rightclick adjust increase/decrease amounts by 10\n rightclick on a slab to apply"
 }
