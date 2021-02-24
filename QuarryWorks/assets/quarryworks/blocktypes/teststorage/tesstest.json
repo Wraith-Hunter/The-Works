@@ -1,0 +1,72 @@
+{
+  "code": "tessletest",
+  "class": "tesstestb",
+  "entityclass": "tesstest",
+
+
+  "creativeinventory": {
+    "general": [ "*" ],
+    "stoneworks": [ "*" ]
+  },
+  "shape": {
+    "base": "blocks/rubblestorage/RubbleBinEmpty"
+  },
+
+  "shapeinventory": { "base": "blocks/rubblestorage/RubbleBinEmpty" },
+  "drawtype": "json",
+  "facecullmode": "nevercull",
+  "sidesolid": {
+    "all": false
+  },
+  "sideopaque": {
+    "all": false
+  },
+  "materialDensity": 600,
+  "lightAbsorption": 99,
+  "emitSideAo": {
+    "all": true
+  },
+  "lightabsorption": 0,
+
+  "textures": {
+    "other": { "base": "game:block/clay/ceramic" }
+  },
+
+  "heldTpIdleAnimation": "holdbothhandslarge",
+  "heldTpUseAnimation": "twohandplaceblock",
+
+  "fpHandTransform": {
+    "translation": {
+      "x": -2.4,
+      "y": -0.35,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 4,
+      "y": -43,
+      "z": 0
+    },
+    "scale": 1.83
+  },
+  "guiTransform": {
+    "translation": {
+      "x": -8,
+      "y": 2,
+      "z": 0
+    },
+    "scale": 0.87
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1.6,
+      "y": -0.8,
+      "z": -0.8
+    },
+    "rotation": {
+      "x": -82,
+      "y": 16,
+      "z": -100
+    },
+    "scale": 0.4
+  }
+}

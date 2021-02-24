@@ -1,0 +1,188 @@
+{
+  "code": "prospectorsdrill",
+  "class": "ProspectingDrill",
+  "variantgroups": [
+    {
+      "code": "material",
+      "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+    }
+  ],
+  "attributes": {
+    "rackable": true,
+    "toolrackTransform": {
+      "translation": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "origin": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+
+  "durabilitybytype": {
+    "*-gold": 125,
+    "*-silver": 125,
+    "*-copper": 250,
+    "*-blackbronze": 600,
+    "*-bismuthbronze": 500,
+    "*-tinbronze": 400,
+    "*-iron": 900,
+    "*-meteoriciron": 1200,
+    "*-steel": 1600
+  },
+  "tooltierbytype": {
+    "*-copper": 2,
+    "*-gold": 2,
+    "*-silver": 2,
+    "*-bismuthbronze": 3,
+    "*-tinbronze": 3,
+    "*-blackbronze": 3,
+    "*-iron": 4,
+    "*-meteoriciron": 4,
+    "*-steel": 5
+  },
+  "miningspeedbytype": {
+    "pickaxe-copper": {
+      "stone": 4,
+      "ore": 4,
+      "metal": 4,
+      "ice": 1.75
+    },
+    "pickaxe-bismuthbronze": {
+      "stone": 5.5,
+      "ore": 5.5,
+      "metal": 5.5,
+      "ice": 2.2
+    },
+    "pickaxe-tinbronze": {
+      "stone": 6,
+      "ore": 6,
+      "metal": 6,
+      "ice": 2.3
+    },
+    "pickaxe-gold": {
+      "stone": 5,
+      "ore": 5,
+      "metal": 5,
+      "ice": 2
+    },
+    "pickaxe-silver": {
+      "stone": 5,
+      "ore": 5,
+      "metal": 5,
+      "ice": 2
+    },
+    "pickaxe-blackbronze": {
+      "stone": 6.5,
+      "ore": 6.5,
+      "metal": 6.5,
+      "ice": 2.8
+    },
+    "pickaxe-iron": {
+      "stone": 7.5,
+      "ore": 7.5,
+      "metal": 7.5,
+      "ice": 3.5
+    },
+    "pickaxe-meteoriciron": {
+      "stone": 8,
+      "ore": 8,
+      "metal": 8,
+      "ice": 3.75
+    },
+    "pickaxe-steel": {
+      "stone": 9,
+      "ore": 9,
+      "metal": 9,
+      "ice": 4.25
+    }
+  },
+
+  "shape": { "base": "items/tools/prospectorsdrill" },
+  "textures": {
+    "metal": { "base": "game:block/metal/plate/{material}" },
+    "wood": { "base": "game:block/wood/debarked/birch" }
+  },
+
+  "creativeinventory": {
+    "general": [ "*" ],
+    "stoneworks": [ "*" ]
+  },
+
+  "fpHandTransform": {
+    "translation": {
+      "x": -0.3,
+      "y": 1.1,
+      "z": 1.5
+    },
+    "rotation": {
+      "x": 0,
+      "y": 72,
+      "z": -90
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "scale": 2.14
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -0.41,
+      "y": 0.36,
+      "z": 0
+    },
+    "rotation": {
+      "x": -91,
+      "y": -5,
+      "z": -180
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "scale": 0.7
+  },
+  "guiTransform": {
+    "translation": {
+      "x": -16,
+      "y": -20,
+      "z": 5
+    },
+    "rotation": {
+      "x": 9,
+      "y": 56,
+      "z": 63
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "scale": 0.95
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": -10,
+      "y": 11,
+      "z": 1
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "scale": 3.22
+  }
+}

@@ -1,10 +1,10 @@
 {
   "type": "code",
-  "modid": "stoneworks",
-  "name": "quarry works",
+  "modid": "quarryworks",
+  "name": "Quarry Works",
   "author": "Wraith",
-  "description": "Testing!",
-  "version": "1.2.4",
+  "description": "Now with ~99% more bugs!",
+  "version": "1.4.7",
   "dependency": {
     "game": ""
   }

@@ -21,6 +21,8 @@
     "general": [ "*-zero-north" ],
     "stoneworks": [ "*-zero-north" ]
   },
+  "maxstacksize": 1,
+
   "attributesByType": {
     "*-east": {
       "caps": [

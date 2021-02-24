@@ -5,23 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
+
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 
+using Vintagestory.API.Config;
 
 namespace stoneworks.src
 {
-    class PlugnFeatherModsystem : ModSystem
-    {
-        public override void Start(ICoreAPI api)
-        {
-            base.Start(api);
-            api.RegisterBlockClass("PlugFeatherBlock", typeof(PlugnFeatherBlock));
-            api.RegisterBlockEntityClass("PlugFeatherBE", typeof(PlugnFeatherBlockEntity));
-        }
-    }
 
     class PlugnFeatherBlock : Block
     {
@@ -72,6 +65,7 @@ namespace stoneworks.src
             {
                 Debug.WriteLine("master is null");
                 base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
+                return;
             }
             else
             {
@@ -80,11 +74,17 @@ namespace stoneworks.src
                 PlugnFeatherBlockEntity masterEntity = world.BlockAccessor.GetBlockEntity(be.master.AsBlockPos) as PlugnFeatherBlockEntity;
                 ItemStack[] drops = GetDrops(world, pos, byPlayer);
 
+                if (masterEntity == null)
+                {
+                    base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
+                    return;
+                }
+
                 if (drops != null)
                 {
                     ItemStack drop = drops[0];
                     drop.StackSize = masterEntity.slavecount + 1;
-                    world.SpawnItemEntity(drop, pos.ToVec3d());
+                    world.SpawnItemEntity(drop, byPlayer.Entity.Pos.AsBlockPos.ToVec3d());
                 }
 
                 foreach (Vec3i slave in masterEntity.slaves)
@@ -177,16 +177,15 @@ namespace stoneworks.src
 
                 if (be.IncreaseWork(10) == true)
                 {
+                    byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible.DamageItem(world, byPlayer.Entity, byPlayer.InventoryManager.ActiveHotbarSlot);
                     if (be.state != be.maxstate)
                     {
                         world.PlaySoundAt(cracksound, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z, byPlayer, volume: .5f);
-                        Debug.WriteLine("work Maxed");
                         be.IncreaseState(1);
                         SwitchState(be.state, world, byPlayer, blockSel);   
                     }
                     if (CheckDone(be, world) == true)
                     {
-                        Debug.WriteLine("all blocks at max");
                         BreakAll(be, world, byPlayer);
                     }
                 }
@@ -196,7 +195,6 @@ namespace stoneworks.src
                 {
                     (byPlayer as IClientPlayer).TriggerFpAnimation(EnumHandInteract.HeldItemAttack);
                 }
-                Debug.WriteLine(be.work);
             }
             
             return true;
@@ -263,6 +261,12 @@ namespace stoneworks.src
             }
 
             PlugnFeatherBlockEntity master = world.BlockAccessor.GetBlockEntity(be.master.AsBlockPos) as PlugnFeatherBlockEntity;
+
+            if (master == null)
+            {
+                return false;
+            }
+
             if (master.state != master.maxstate)
             {
                 Debug.WriteLine("master is not maxed");
@@ -345,12 +349,15 @@ namespace stoneworks.src
             string dropItemFillerString = GetDropType(rockamount);
             string sizeModFillerString = GetSizeFillerString(dropItemFillerString);
             string dropItemString = "stonestorage" + dropItemFillerString + "-" + rockpath + sizeModFillerString + "north";
-            Block dropItem = world.GetBlock(new AssetLocation(Code.Domain, dropItemString));
-            ItemStack dropItemStack = new ItemStack(dropItem, 1);
-            dropItemStack.Attributes.SetInt("stonestored", rockamount);
+            if (dropItemFillerString != null)
+            {
+                Block dropItem = world.GetBlock(new AssetLocation(Code.Domain, dropItemString));
+                ItemStack dropItemStack = new ItemStack(dropItem, 1);
+                dropItemStack.Attributes.SetInt("stonestored", rockamount);
+                world.SpawnItemEntity(dropItemStack, new Vec3d(((cube[1].X - cube[0].X) / 2) + cube[0].X, ((cube[1].Y - cube[0].Y) / 2) + cube[0].Y, ((cube[1].Z - cube[0].Z) / 2) + cube[0].Z));
+            }
 
             world.BlockAccessor.BreakBlock(be.master.AsBlockPos, byPlayer);
-            world.SpawnItemEntity(dropItemStack, new Vec3d(((cube[1].X - cube[0].X) / 2) + cube[0].X, ((cube[1].Y - cube[0].Y) / 2) + cube[0].Y, ((cube[1].Z - cube[0].Z) / 2) + cube[0].Z));
 
         }
 
@@ -436,17 +443,27 @@ namespace stoneworks.src
 
                     Block block1 = world.BlockAccessor.GetBlock(rpos1.AsBlockPos);
                     Block block2 = world.BlockAccessor.GetBlock(rpos2.AsBlockPos);
+
+                    PlugnFeatherBlockEntity be1 = world.BlockAccessor.GetBlockEntity(rpos1.AsBlockPos) as PlugnFeatherBlockEntity;
+                    PlugnFeatherBlockEntity be2 = world.BlockAccessor.GetBlockEntity(rpos2.AsBlockPos) as PlugnFeatherBlockEntity;
+
+
                     if (BE.orientation == "horizontal")
                     {
                         if (block1.Code.Path.Contains("plugnfeather") && block1.FirstCodePart(1) == this.FirstCodePart(1) && block1.Code.Path.Contains("-down-") && (block1.Code.Path.Contains(checkDir[0]) || block1.Code.Path.Contains(checkDir[1])))
                         {
-                            //Debug.WriteLine(block1);
-                            return rpos1;
+                            if (be1 != null && be1.slavecount == 0 && be1.master == null)
+                            {
+                                return rpos1;
+                            }
+                            
                         }
                         if (block2.Code.Path.Contains("plugnfeather") && block2.FirstCodePart(1) == this.FirstCodePart(1) && block2.Code.Path.Contains("-up-") && (block2.Code.Path.Contains(checkDir[0]) || block2.Code.Path.Contains(checkDir[1])))
                         {
-                            //Debug.WriteLine(block2);
-                            return rpos2;
+                            if (be2 != null && be2.slavecount == 0 && be2.master == null)
+                            {
+                                return rpos2;
+                            }
                         }
                     }
                     else if (BE.orientation == "up" || BE.orientation == "down")
@@ -454,12 +471,18 @@ namespace stoneworks.src
                         if (block1.Code.Path.Contains("plugnfeather-") && block1.Code.Path.Contains("-horizontal-") && block1.FirstCodePart(1) == this.FirstCodePart(1) && (block1.Code.Path.Contains(checkDir[0]) || block1.Code.Path.Contains(checkDir[1])))
                         {
                             //Debug.WriteLine(block1);
-                            return rpos1;
+                            if (be1 != null && be1.slavecount == 0 && be1.master == null)
+                            {
+                                return rpos1;
+                            }
                         }
                         if (block2.Code.Path.Contains("plugnfeather-") && block2.Code.Path.Contains("-horizontal-") && block2.FirstCodePart(1) == this.FirstCodePart(1) && (block2.Code.Path.Contains(checkDir[0]) || block2.Code.Path.Contains(checkDir[1])))
                         {
                             //Debug.WriteLine(block2);
-                            return rpos2;
+                            if (be2 != null && be2.slavecount == 0 && be2.master == null)
+                            {
+                                return rpos2;
+                            }
                         }
                     }
                 }
@@ -468,12 +491,12 @@ namespace stoneworks.src
             return null;
         }
 
-        public List<Vec3i> GetNeighbours(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        public List<Vec3i> GetNeighbours(IWorldAccessor world, IPlayer byPlayer, BlockPos spos)
         {
             //Finds blocks in a line around this block. Stops if theres a break in the line.
-            PlugnFeatherBlockEntity BE = world.BlockAccessor.GetBlockEntity(blockSel.Position) as PlugnFeatherBlockEntity;
+            PlugnFeatherBlockEntity BE = world.BlockAccessor.GetBlockEntity(spos) as PlugnFeatherBlockEntity;
             Vec3i checkDir = new Vec3i();
-            Vec3i startPos = blockSel.Position.ToVec3i();
+            Vec3i startPos = spos.ToVec3i();
 
             List<Vec3i> returnBlocks = new List<Vec3i>();
 
@@ -549,7 +572,8 @@ namespace stoneworks.src
             //builds a series of points based on the surrounding blocks.
             //PlugnFeatherBlockEntity BE = world.BlockAccessor.GetBlockEntity(blockSel.Position) as PlugnFeatherBlockEntity;
             Vec3i counterpart = GetCounterpart(world, byPlayer, blockSel.Position);
-            List<Vec3i> neighbours = GetNeighbours(world, byPlayer, blockSel);
+            List<Vec3i> neighbours = GetNeighbours(world, byPlayer, blockSel.Position);
+            ;
             
             List<Vec3i> slaves = new List<Vec3i>();
 
@@ -558,36 +582,33 @@ namespace stoneworks.src
                 Debug.WriteLine("No Counterpart at this pos.");
                 return null;
             }
+            List<Vec3i> counterNeighbours = (world.BlockAccessor.GetBlock(counterpart.AsBlockPos) as PlugnFeatherBlock).GetNeighbours(world, byPlayer, counterpart.AsBlockPos);
 
             slaves.Add(counterpart);
-
-            if (neighbours.Count == 0)
+            if (counterNeighbours.Count > 0 && neighbours.Count > 0)
             {
-                Debug.WriteLine("No Neighbours around this pos.");
-                //return null;
-            }
-            for (int i = 0; i < neighbours.Count; i++)
-            {
-                PlugnFeatherBlock nblock = world.BlockAccessor.GetBlock(neighbours[i].AsBlockPos) as PlugnFeatherBlock;
-                PlugnFeatherBlockEntity nblockentity = world.BlockAccessor.GetBlockEntity(neighbours[i].AsBlockPos) as PlugnFeatherBlockEntity;
-                Vec3i ncounterblockpos = nblock.GetCounterpart(world, byPlayer, neighbours[i].AsBlockPos);
-                PlugnFeatherBlockEntity ncounterbe = null;
-                if (ncounterblockpos != null)
+                for (int i = 0; i < neighbours.Count; i++)
                 {
-                    ncounterbe = world.BlockAccessor.GetBlockEntity(ncounterblockpos.AsBlockPos) as PlugnFeatherBlockEntity;
+                    PlugnFeatherBlock nblock = world.BlockAccessor.GetBlock(neighbours[i].AsBlockPos) as PlugnFeatherBlock;
+                    PlugnFeatherBlockEntity nblockentity = world.BlockAccessor.GetBlockEntity(neighbours[i].AsBlockPos) as PlugnFeatherBlockEntity;
+                    Vec3i ncounterblockpos = nblock.GetCounterpart(world, byPlayer, neighbours[i].AsBlockPos);
+                    PlugnFeatherBlockEntity ncounterbe = null;
+                    if (ncounterblockpos != null)
+                    {
+                        ncounterbe = world.BlockAccessor.GetBlockEntity(ncounterblockpos.AsBlockPos) as PlugnFeatherBlockEntity;
+                    }
+
+
+                    if (ncounterblockpos != null && ncounterbe.master == null && counterNeighbours.Contains(ncounterblockpos))
+                    {
+                        slaves.Add(ncounterblockpos);
+                        slaves.Add(neighbours[i]);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-
-
-                if (ncounterblockpos != null && ncounterbe.master == null)
-                {
-                    slaves.Add(ncounterblockpos);
-                    slaves.Add(neighbours[i]);
-                }
-            }
-
-            for (int i = 0; i < slaves.Count; i++)
-            {
-                Debug.WriteLine(slaves[i]);
             }
             return slaves;
 

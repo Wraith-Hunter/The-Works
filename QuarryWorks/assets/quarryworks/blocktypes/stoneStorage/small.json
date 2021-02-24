@@ -17,6 +17,8 @@
     "general": [ "*-north" ],
     "stoneworks": [ "*-north" ]
   },
+  "maxstacksize": 1,
+
   "textures": {
     "stone": { "base": "game:block/stone/rock/{stone}1" }
   },

@@ -14,19 +14,6 @@ using Vintagestory.API;
 
 namespace stoneworks.src
 {
-    class StoneStorageModsystem : ModSystem
-    {
-        public override void Start(ICoreAPI api)
-        {
-            base.Start(api);
-            api.RegisterBlockClass("RubbleStorage", typeof(RubbleStorage));
-            api.RegisterBlockEntityClass("RubbleStorageBE", typeof(RubbleStorageBE));
-
-            api.RegisterBlockClass("RoughStoneStorage", typeof(RoughCutStorage));
-            api.RegisterBlockEntityClass("StoneStorageCoreBE", typeof(RoughCutStorageBE));
-            api.RegisterBlockEntityClass("StoneStorageCapBE", typeof(GenericStorageCapBE));
-        }
-    }
 
     class GenericStoneStorage: Block
     {
@@ -78,6 +65,7 @@ namespace stoneworks.src
             }
             return base.CanPlaceBlock(world, byPlayer, blockSel, ref failureCode);
         }
+
         public override bool DoPlaceBlock(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel, ItemStack byItemStack)
         {
             BlockFacing[] sughv = SuggestedHVOrientation(byPlayer, blockSel);
@@ -105,8 +93,11 @@ namespace stoneworks.src
                     world.BlockAccessor.ExchangeBlock(capBlock.Id, capPos);
 
                     world.BlockAccessor.SpawnBlockEntity("StoneStorageCapBE", capPos);
-                    (world.BlockAccessor.GetBlockEntity(capPos) as GenericStorageCapBE).core = blockSel.Position;
-                    (world.BlockAccessor.GetBlockEntity(blockSel.Position) as GenericStorageCoreBE).caps.Add(capPos);
+                    if (world.BlockAccessor.GetBlock(capPos) != null && world.BlockAccessor.GetBlockEntity(blockSel.Position) != null)
+                    {
+                        (world.BlockAccessor.GetBlockEntity(capPos) as GenericStorageCapBE).core = blockSel.Position;
+                        (world.BlockAccessor.GetBlockEntity(blockSel.Position) as GenericStorageCoreBE).caps.Add(capPos);
+                    }
 
                     world.BlockAccessor.MarkBlockDirty(capPos);
                     world.BlockAccessor.MarkBlockEntityDirty(capPos);
@@ -260,6 +251,7 @@ namespace stoneworks.src
     }
 
 
+
     class RoughCutStorage : GenericStoneStorage
     {
         //used to store what is dropped from the quarry.
@@ -295,23 +287,22 @@ namespace stoneworks.src
         }
 
 
-
         public override bool DoPlaceBlock(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel, ItemStack byItemStack)
         {
-            base.DoPlaceBlock(world, byPlayer, blockSel, byItemStack);
-            RoughCutStorageBE be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as RoughCutStorageBE;
-            if (be == null)
-            {
-                return true;
-            }
-
+            
             if (!byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.HasAttribute("stonestored"))
             {
                 byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.SetInt("stonestored", 1);
             }
 
+            base.DoPlaceBlock(world, byPlayer, blockSel, byItemStack);
+            RoughCutStorageBE be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as RoughCutStorageBE;
             be.istack = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Clone();
-            byPlayer.InventoryManager.ActiveHotbarSlot.TakeOutWhole();
+            be.istack.StackSize = 1;
+            if (be == null)
+            {
+                return true;
+            }
             return true;
         }
 
@@ -485,7 +476,33 @@ namespace stoneworks.src
                 }
             }
 
+            world.BlockAccessor.MarkBlockDirty(blockSel.Position);
+            world.BlockAccessor.MarkBlockEntityDirty(blockSel.Position);
+
             return true;
+        }
+
+        public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
+        {
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+            if (inSlot.Itemstack.Attributes.HasAttribute("stonestored"))
+            {
+                dsc.AppendLine("Stored: " + inSlot.Itemstack.Attributes.GetInt("stonestored"));
+            }
+        }
+
+        public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
+        {
+            //return base.GetPlacedBlockInfo(world, pos, forPlayer);
+            BlockEntity be = world.BlockAccessor.GetBlockEntity(pos);
+            if (be is GenericStorageCapBE)
+                be = world.BlockAccessor.GetBlockEntity((be as GenericStorageCapBE).core);
+            RoughCutStorageBE rcbe = be as RoughCutStorageBE; // casts the block entity as a roughcut block entity.
+            if (rcbe == null)
+            {
+                return "corrupt";
+            }
+            return "Stored: "+rcbe.istack.Attributes.GetInt("stonestored").ToString();
         }
     }
 
@@ -561,15 +578,16 @@ namespace stoneworks.src
         public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
         {
             BlockEntity be = world.BlockAccessor.GetBlockEntity(pos);
+            if (be == null)
+            { return "No!"; }
             RubbleStorageBE rsbe = world.BlockAccessor.GetBlockEntity(pos) as RubbleStorageBE;
-
             if (be is GenericStorageCapBE)
             {
                 rsbe = world.BlockAccessor.GetBlockEntity((be as GenericStorageCapBE).core) as RubbleStorageBE;
             }
             if (rsbe == null)
             {
-                return "";
+                return "Null";
             }
             string stonelock = "";
             string gravlock = "";
@@ -682,7 +700,7 @@ namespace stoneworks.src
                 }
             }
 
-            else if (blockSel.SelectionBoxIndex == 0 && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack != null)
+            else if (blockSel.SelectionBoxIndex == 0 && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack != null && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.ItemAttributes != null)
             {
                 // attempts to add the players resource to the block.
                 if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.ItemAttributes["rubbleable"].AsBool())
@@ -699,6 +717,7 @@ namespace stoneworks.src
                 else if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.GetTreeAttribute("contents") != null
                     && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.GetTreeAttribute("contents").GetItemstack("0") != null)
                 {
+                    // For checking if a bucket is used, the bucket has a "contents" atribute that is used to store liquides.
                     ItemStack tstack = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.GetTreeAttribute("contents").GetItemstack("0");
                     if (tstack.Collectible.Code.Domain == "game" && tstack.Collectible.Code.Path == "waterportion")
                     {
@@ -777,15 +796,17 @@ namespace stoneworks.src
                 return false;
             }
             RubbleStorageBE rsbe = world.BlockAccessor.GetBlockEntity(blockSel.Position) as RubbleStorageBE;
-            rsbe.storedType = byItemStack.Attributes.GetString("type", "");
-            rsbe.storedtypes["stone"] = byItemStack.Attributes.GetInt("stone", 0);
-            rsbe.storedtypes["gravel"] = byItemStack.Attributes.GetInt("gravel", 0);
-            rsbe.storedtypes["sand"] = byItemStack.Attributes.GetInt("sand", 0);
-            if (byItemStack.ItemAttributes.KeyExists("maxStorable"))
+            if (rsbe != null)
             {
-                rsbe.maxStorable = byItemStack.ItemAttributes["maxStorable"].AsInt();
+                rsbe.storedType = byItemStack.Attributes.GetString("type", "");
+                rsbe.storedtypes["stone"] = byItemStack.Attributes.GetInt("stone", 0);
+                rsbe.storedtypes["gravel"] = byItemStack.Attributes.GetInt("gravel", 0);
+                rsbe.storedtypes["sand"] = byItemStack.Attributes.GetInt("sand", 0);
+                if (byItemStack.ItemAttributes.KeyExists("maxStorable"))
+                {
+                    rsbe.maxStorable = byItemStack.ItemAttributes["maxStorable"].AsInt();
+                }
             }
-
             return true;
         }
     }
@@ -832,7 +853,6 @@ namespace stoneworks.src
             //Set's the displayed block to the type that has the largest amount of stored material.
             RubbleStorage cblock = world.BlockAccessor.GetBlock(blocksel.Position) as RubbleStorage;
 
-
             string bshouldbe = "empty";
             string maxstored = "";
             int maxAmountStored = 0;
@@ -868,6 +888,10 @@ namespace stoneworks.src
             {
                 cblock.SwitchVariant(world, blocksel, changeDict);
             }
+
+            world.BlockAccessor.MarkBlockDirty(blocksel.Position);
+            world.BlockAccessor.MarkBlockEntityDirty(blocksel.Position);
+
         }
 
         public bool removeResource(IWorldAccessor world, IPlayer byplayer, BlockSelection blockSel, string stype, int quant)
@@ -926,7 +950,7 @@ namespace stoneworks.src
                 lstype = islot.Itemstack.Item.Code.Path;
             }
 
-            if (storedType == "" && allowedTypes.Any(rtype.Contains))
+            if (storedType == "" && rtype != null && allowedTypes.Any(rtype.Contains))
             {
                 storedType = rtype;
             }

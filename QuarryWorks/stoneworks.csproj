@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11D41D6D-8D87-42D3-BFCB-CEDB2161653D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>stoneworks</RootNamespace>
+    <AssemblyName>stoneworks</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\stoneworks\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Debug\stoneworks\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\stoneworks\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Release\stoneworks\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(AppData)\Vintagestory\VintagestoryAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(AppData)\Vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\game\patches\tools.json" />
+    <Content Include="assets\quarryworks\blocktypes\dimensionstonestorage.json" />
+    <Content Include="assets\quarryworks\blocktypes\mold\toolmolds.json" />
+    <Content Include="assets\quarryworks\blocktypes\quarry\plugnfeather.json" />
+    <Content Include="assets\quarryworks\blocktypes\stoneStorage\gient.json" />
+    <Content Include="assets\quarryworks\blocktypes\stoneStorage\huge.json" />
+    <Content Include="assets\quarryworks\blocktypes\stoneStorage\large.json" />
+    <Content Include="assets\quarryworks\blocktypes\stoneStorage\med.json" />
+    <Content Include="assets\quarryworks\blocktypes\stoneStorage\small.json" />
+    <Content Include="assets\quarryworks\config\handbook\sw-masonguide.json" />
+    <Content Include="assets\quarryworks\config\handbook\sw-quarryguide.json" />
+    <Content Include="assets\quarryworks\itemtypes\tools\finishingchisel.json" />
+    <Content Include="assets\quarryworks\itemtypes\tools\roughcutchisel.json" />
+    <Content Include="assets\quarryworks\itemtypes\tools\rubblehammer.json" />
+    <Content Include="assets\quarryworks\itemtypes\tools\wedgechisel.json" />
+    <Content Include="assets\quarryworks\itemtypes\heads\rubblehammerhead.json" />
+    <Content Include="assets\quarryworks\lang\en.json" />
+    <Content Include="assets\quarryworks\recipes\clayforming\plugnfeather.json" />
+    <Content Include="assets\quarryworks\recipes\grid\rubblehammer.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\finishingchisel.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\roughcutchisel.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\rubblehammerhead.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\wedgechisel.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\molds\plugnfeather.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\quarry\StoneWedgeStateTop1.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\quarry\StoneWedgeStateTop2.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\quarry\StoneWedgeStateTop3.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\stonestorage0.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\stonestorage1.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\stonestorage2.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\gient\stonestoragegientinv.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\huge\stonestoragehugeB0.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\huge\stonestoragehugeB1.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\huge\stonestoragehugeInv.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\huge\stonestoragehugeT0.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\huge\stonestoragehugeT1.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\large\stonestoragelargeL0.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\large\stonestoragelargeL1.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\large\stonestoragelargeLinv.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\mid\stonestoragemedium0.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\mid\stonestoragemediuminv.json" />
+    <Content Include="assets\quarryworks\shapes\blocks\stonestorage\small\stonestoragesmall0.json" />
+    <Content Include="assets\quarryworks\shapes\items\gientchunk.json" />
+    <Content Include="assets\quarryworks\shapes\items\hugechunk.json" />
+    <Content Include="assets\quarryworks\shapes\items\largechunk.json" />
+    <Content Include="assets\quarryworks\shapes\items\midchunk.json" />
+    <Content Include="assets\quarryworks\shapes\items\smallchunk.json" />
+    <Content Include="assets\quarryworks\shapes\items\toolheads\rubblehammer.json" />
+    <Content Include="assets\quarryworks\shapes\items\tools\FinishingChisel.json" />
+    <Content Include="assets\quarryworks\shapes\items\tools\RoughcutChisel.json" />
+    <Content Include="assets\quarryworks\shapes\items\tools\RubbleHammer.json" />
+    <Content Include="assets\quarryworks\shapes\items\tools\WedgeChisel.json" />
+    <Content Include="modinfo.json" />
+    <Compile Include="src\Prospecting.cs" />
+    <Compile Include="src\QuarryWorks.cs" />
+    <Compile Include="src\RubbleHammer.cs" />
+    <Compile Include="src\TessTest.cs" />
+    <Compile Include="src\ForWhenThingGoWrong.cs" />
+    <Compile Include="src\GenericStoneStorage.cs" />
+    <Compile Include="src\PlugnFeather.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\quarryworks\blocktypes\rubblestorage\rubblestorage.json" />
+    <Content Include="assets\quarryworks\blocktypes\teststorage\tesstest.json" />
+    <None Include="assets\quarryworks\config\creativetabs.json" />
+    <Content Include="assets\quarryworks\itemtypes\debugger\slabstacksetter.json" />
+    <Content Include="assets\quarryworks\recipes\grid\rubbleStorage.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\plugnfeather.json" />
+    <Content Include="assets\quarryworks\itemtypes\tools\prospectorsdrill.json" />
+    <Content Include="assets\quarryworks\itemtypes\coresample.json" />
+    <Content Include="assets\quarryworks\recipes\smithing\prospectorsdrill.json" />
+    <None Include="assets\quarryworks\shapes\blocks\rubblestorage\RubbleBinClosed.json" />
+    <None Include="assets\quarryworks\shapes\blocks\rubblestorage\RubbleBinEmpty.json" />
+    <None Include="assets\quarryworks\shapes\blocks\rubblestorage\RubbleBinGravel.json" />
+    <None Include="assets\quarryworks\shapes\blocks\rubblestorage\RubbleBinSand.json" />
+    <None Include="assets\quarryworks\shapes\blocks\rubblestorage\RubbleBinStone.json" />
+    <None Include="assets\quarryworks\shapes\coresample.json" />
+    <None Include="assets\quarryworks\shapes\items\tools\ballodirt.json" />
+    <None Include="assets\quarryworks\shapes\items\tools\prospectorsdrill.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

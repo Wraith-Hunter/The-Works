@@ -1,0 +1,46 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"rock": "game:block/stone/rock/andesite1"
+	},
+	"elements": [
+		{
+			"name": "Cube1",
+			"from": [ -5.0, 0.0, -2.0 ], 
+			"to": [ 6.0, 4.0, 2.0 ], 
+			"rotationOrigin": [ -5.0, 0.0, -2.0 ],
+			"faces": {
+				"north": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 11.0, 4.0 ]
+				},
+				"east": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 4.0, 4.0 ]
+				},
+				"south": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 11.0, 4.0 ]
+				},
+				"west": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 4.0, 4.0 ]
+				},
+				"up": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 11.0, 4.0 ]
+				},
+				"down": {
+					"texture": "#rock",
+					"uv": [ 0.0, 0.0, 11.0, 4.0 ]
+				}
+			}
+		}
+	]}
