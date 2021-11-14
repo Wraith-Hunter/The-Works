@@ -10,20 +10,19 @@
     },
     {
       "code": "depth",
-      "states": [ "zero", "one" ]
+      "states": ["zero", "one"]
     },
     {
       "code": "height",
-      "states": [ "zero", "one" ]
+      "states": ["zero", "one"]
     },
     {
       "code": "dir",
-      "states": [ "north", "south", "east", "west" ]
+      "states": ["north", "south", "east", "west"]
     }
   ],
   "creativeinventory": {
-    "stoneworks": [ "*-zero-zero-north" ],
-    "general": [ "*-zero-zero-north" ]
+    "general": ["*-zero-zero-north"]
   },
   "attributesByType": {
     "*-east": {
@@ -33,9 +32,9 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "east"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
         {
@@ -43,9 +42,9 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "zero" ],
-            [ "height", "zero" ]
+            ["dir", "west"],
+            ["depth", "zero"],
+            ["height", "zero"]
           ]
         },
         {
@@ -53,9 +52,9 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "west"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
 
@@ -64,9 +63,9 @@
           "y": 1,
           "z": 1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "east"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -74,9 +73,9 @@
           "y": 1,
           "z": 1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "west"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         },
         {
@@ -84,9 +83,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "west"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -94,9 +93,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "east"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         }
       ]
@@ -108,9 +107,9 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "south"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
         {
@@ -118,9 +117,9 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "zero" ],
-            [ "height", "zero" ]
+            ["dir", "north"],
+            ["depth", "zero"],
+            ["height", "zero"]
           ]
         },
         {
@@ -128,9 +127,9 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "north"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
 
@@ -139,9 +138,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "south"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -149,9 +148,9 @@
           "y": 1,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "north"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         },
         {
@@ -159,9 +158,9 @@
           "y": 1,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "north"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -169,12 +168,11 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "south"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         }
-
       ]
     },
     "*-north": {
@@ -184,9 +182,9 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "north"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
         {
@@ -194,9 +192,9 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "zero" ],
-            [ "height", "zero" ]
+            ["dir", "south"],
+            ["depth", "zero"],
+            ["height", "zero"]
           ]
         },
         {
@@ -204,9 +202,9 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "south"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
 
@@ -215,9 +213,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "north"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -225,9 +223,9 @@
           "y": 1,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "south"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         },
         {
@@ -235,9 +233,9 @@
           "y": 1,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "south"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -245,9 +243,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "north"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         }
       ]
@@ -259,9 +257,9 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "west"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
         {
@@ -269,9 +267,9 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "zero" ],
-            [ "height", "zero" ]
+            ["dir", "east"],
+            ["depth", "zero"],
+            ["height", "zero"]
           ]
         },
         {
@@ -279,9 +277,9 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ],
-            [ "height", "zero" ]
+            ["dir", "east"],
+            ["depth", "one"],
+            ["height", "zero"]
           ]
         },
 
@@ -290,9 +288,9 @@
           "y": 1,
           "z": -1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "west"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -300,9 +298,9 @@
           "y": 1,
           "z": -1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "east"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         },
         {
@@ -310,9 +308,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ],
-            [ "height", "one" ]
+            ["dir", "east"],
+            ["depth", "one"],
+            ["height", "one"]
           ]
         },
         {
@@ -320,9 +318,9 @@
           "y": 1,
           "z": 0,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "zero" ],
-            [ "height", "one" ]
+            ["dir", "west"],
+            ["depth", "zero"],
+            ["height", "one"]
           ]
         }
       ]
@@ -363,7 +361,6 @@
       "base": "blocks/stonestorage/huge/stonestoragehugeB1",
       "rotatey": 90
     },
-
 
     "*zero-one-north": {
       "base": "blocks/stonestorage/huge/stonestoragehugeT0"
@@ -414,7 +411,6 @@
   },
   "lightabsorption": 0,
 
-
   "heldTpIdleAnimation": "holdbothhandslarge",
   "heldTpUseAnimation": "twohandplaceblock",
 
@@ -440,4 +436,3 @@
     "scale": 0.4
   }
 }
-

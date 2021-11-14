@@ -10,12 +10,11 @@
     },
     {
       "code": "dir",
-      "states": [ "north", "south", "east", "west" ]
+      "states": ["north", "south", "east", "west"]
     }
   ],
   "creativeinventory": {
-    "general": [ "*-north" ],
-    "stoneworks": [ "*-north" ]
+    "general": ["*-north"]
   },
   "textures": {
     "stone": { "base": "game:block/stone/rock/{stone}1" }
@@ -39,7 +38,6 @@
       "base": "blocks/stonestorage/small/stonestoragesmall0",
       "rotatey": 90
     }
-
   },
   "drawtype": "json",
   "facecullmode": "nevercull",
@@ -73,5 +71,4 @@
     },
     "scale": 0.4
   }
-
 }

@@ -5,20 +5,17 @@
     "toolmold-burned-*": "BlockToolMold"
   },
   "behaviorsByType": {
-    "*-raw-*": [
-      { "name": "UnstableFalling" },
-      { "name": "RightClickPickup" }
-    ],
-    "*": [ { "name": "UnstableFalling" } ]
+    "*-raw-*": [{ "name": "UnstableFalling" }, { "name": "RightClickPickup" }],
+    "*": [{ "name": "UnstableFalling" }]
   },
   "variantgroups": [
     {
       "code": "materialtype",
-      "states": [ "raw", "burned" ]
+      "states": ["raw", "burned"]
     },
     {
       "code": "tooltype",
-      "states": [ "plugnfeather" ]
+      "states": ["plugnfeather"]
     }
   ],
   "attributesByType": {
@@ -51,9 +48,9 @@
   },
   "blockmaterial": "Ceramic",
   "creativeinventory": {
-    "general": [ "*" ],
-    "construction": [ "*" ],
-    "stoneworks": [ "*" ]
+    "general": ["*"],
+    "construction": ["*"],
+    "quarryworks": ["*"]
   },
   "replaceable": 700,
   "resistance": 1.5,

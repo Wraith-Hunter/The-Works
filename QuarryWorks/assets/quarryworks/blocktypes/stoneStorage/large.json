@@ -10,16 +10,15 @@
     },
     {
       "code": "depth",
-      "states": [ "zero", "one" ]
+      "states": ["zero", "one"]
     },
     {
       "code": "dir",
-      "states": [ "north", "south", "east", "west" ]
+      "states": ["north", "south", "east", "west"]
     }
   ],
   "creativeinventory": {
-    "general": [ "*-zero-north" ],
-    "stoneworks": [ "*-zero-north" ]
+    "general": ["*-zero-north"]
   },
   "attributesByType": {
     "*-east": {
@@ -29,8 +28,8 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ]
+            ["dir", "east"],
+            ["depth", "one"]
           ]
         },
         {
@@ -38,8 +37,8 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "zero" ]
+            ["dir", "west"],
+            ["depth", "zero"]
           ]
         },
         {
@@ -47,8 +46,8 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ]
+            ["dir", "west"],
+            ["depth", "one"]
           ]
         }
       ]
@@ -60,8 +59,8 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ]
+            ["dir", "south"],
+            ["depth", "one"]
           ]
         },
         {
@@ -69,8 +68,8 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "zero" ]
+            ["dir", "north"],
+            ["depth", "zero"]
           ]
         },
         {
@@ -78,8 +77,8 @@
           "y": 0,
           "z": 1,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ]
+            ["dir", "north"],
+            ["depth", "one"]
           ]
         }
       ]
@@ -91,8 +90,8 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "north" ],
-            [ "depth", "one" ]
+            ["dir", "north"],
+            ["depth", "one"]
           ]
         },
         {
@@ -100,8 +99,8 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "zero" ]
+            ["dir", "south"],
+            ["depth", "zero"]
           ]
         },
         {
@@ -109,8 +108,8 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "south" ],
-            [ "depth", "one" ]
+            ["dir", "south"],
+            ["depth", "one"]
           ]
         }
       ]
@@ -122,8 +121,8 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "west" ],
-            [ "depth", "one" ]
+            ["dir", "west"],
+            ["depth", "one"]
           ]
         },
         {
@@ -131,8 +130,8 @@
           "y": 0,
           "z": -1,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "zero" ]
+            ["dir", "east"],
+            ["depth", "zero"]
           ]
         },
         {
@@ -140,8 +139,8 @@
           "y": 0,
           "z": 0,
           "varType": [
-            [ "dir", "east" ],
-            [ "depth", "one" ]
+            ["dir", "east"],
+            ["depth", "one"]
           ]
         }
       ]
@@ -200,7 +199,6 @@
   },
   "lightabsorption": 0,
 
-
   "heldTpIdleAnimation": "holdbothhandslarge",
   "heldTpUseAnimation": "twohandplaceblock",
 
@@ -226,4 +224,3 @@
     "scale": 0.4
   }
 }
-

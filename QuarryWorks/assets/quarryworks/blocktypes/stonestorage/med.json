@@ -10,11 +10,11 @@
     },
     {
       "code": "dir",
-      "states": [ "north", "south", "east", "west" ]
+      "states": ["north", "south", "east", "west"]
     }
   ],
   "creativeinventory": {
-    "general": [ "*-north" ]
+    "general": ["*-north"]
   },
   "attributesByType": {
     "*-east": {
@@ -23,7 +23,7 @@
           "x": 0,
           "y": 0,
           "z": 1,
-          "varType": [ [ "dir", "west" ] ]
+          "varType": [["dir", "west"]]
         }
       ]
     },
@@ -33,7 +33,7 @@
           "x": -1,
           "y": 0,
           "z": 0,
-          "varType": [ [ "dir", "north" ] ]
+          "varType": [["dir", "north"]]
         }
       ]
     },
@@ -43,7 +43,7 @@
           "x": 1,
           "y": 0,
           "z": 0,
-          "varType": [ [ "dir", "south" ] ]
+          "varType": [["dir", "south"]]
         }
       ]
     },
@@ -53,9 +53,7 @@
           "x": 0,
           "y": 0,
           "z": -1,
-          "varType": [
-            [ "dir", "east" ]
-          ]
+          "varType": [["dir", "east"]]
         }
       ]
     }
@@ -95,7 +93,6 @@
     "all": true
   },
   "lightabsorption": 0,
-
 
   "heldTpIdleAnimation": "holdbothhandslarge",
   "heldTpUseAnimation": "twohandplaceblock",
