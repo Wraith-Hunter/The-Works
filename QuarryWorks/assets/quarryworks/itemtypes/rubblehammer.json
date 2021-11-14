@@ -3,7 +3,17 @@
   "variantgroups": [
     {
       "code": "material",
-      "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
     }
   ],
   "attributes": {
@@ -20,7 +30,7 @@
       "scale": 1.35
     }
   },
-  "damagedby": [ "attacking" ],
+  "damagedby": ["attacking"],
   "attackRange": 2,
   "durabilitybytype": {
     "*-gold": 125,
@@ -52,8 +62,8 @@
   },
 
   "creativeinventory": {
-    "general": [ "*" ],
-    "stoneworks": [ "*" ]
+    "general": ["*"],
+    "quarryworks": ["*"]
   },
 
   "heldTpUseAnimation": "axechop",

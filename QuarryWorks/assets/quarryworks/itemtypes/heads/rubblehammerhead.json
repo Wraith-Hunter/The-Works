@@ -3,7 +3,17 @@
   "variantgroups": [
     {
       "code": "material",
-      "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
     }
   ],
   "shape": { "base": "items/toolheads/rubblehammer" },
@@ -14,8 +24,8 @@
   "maxstacksize": 1,
 
   "creativeinventory": {
-    "general": [ "*" ],
-    "stoneworks": [ "*" ]
+    "general": ["*"],
+    "quarryworks": ["*"]
   },
 
   "fpHandTransform": {

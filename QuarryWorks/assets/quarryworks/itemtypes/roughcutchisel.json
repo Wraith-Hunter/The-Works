@@ -3,7 +3,17 @@
   "variantgroups": [
     {
       "code": "material",
-      "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
     }
   ],
   "attributes": {
@@ -48,8 +58,8 @@
   },
 
   "creativeinventory": {
-    "general": [ "*" ],
-    "stoneworks": [ "*" ]
+    "general": ["*"],
+    "quarryworks": ["*"]
   },
 
   "heldTpUseAnimation": "knap",

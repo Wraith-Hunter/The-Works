@@ -6,19 +6,19 @@
   "variantgroups": [
     {
       "code": "metal",
-      "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "iron" ]
+      "states": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "iron"]
     },
     {
       "code": "type",
-      "states": [ "one", "two", "three" ]
+      "states": ["one", "two", "three"]
     },
     {
       "code": "orientation",
-      "states": [ "horizontal", "up", "down" ]
+      "states": ["horizontal", "up", "down"]
     },
     {
       "code": "direction",
-      "states": [ "north", "south", "east", "west" ]
+      "states": ["north", "south", "east", "west"]
     }
   ],
   "attributesByType": {
@@ -72,7 +72,6 @@
       "base": "blocks/quarry/StoneWedgeStateTop3",
       "rotatey": 90
     },
-
 
     "*one-up-east": {
       "base": "blocks/quarry/StoneWedgeStateTop1",
@@ -129,7 +128,6 @@
       "rotatex": 180,
       "rotatey": 90
     },
-
 
     "*one-horizontal-north": {
       "base": "blocks/quarry/StoneWedgeStateTop1",
@@ -188,7 +186,6 @@
       "base": "blocks/quarry/StoneWedgeStateTop3",
       "rotatez": -90
     }
-
   },
   "textures": {
     "metal": { "base": "game:block/metal/plate/{metal}" }
@@ -206,8 +203,8 @@
   "lightAbsorption": 0,
 
   "creativeinventory": {
-    "general": [ "*-one-down-north" ],
-    "stoneworks": [ "*-one-down-north" ]
+    "general": ["*-one-down-north"],
+    "quarryworks": ["*-one-down-north"]
   },
 
   "collisionboxByType": {
@@ -421,5 +418,4 @@
       }
     }
   ]
-
 }
